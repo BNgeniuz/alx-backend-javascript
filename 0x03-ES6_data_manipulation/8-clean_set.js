@@ -1,6 +1,5 @@
-export default function cleanSet(set, startString) {
-  const newString = [];
-  const len = startString.length;
+function cleanSet(set, startString) {
+  const string = [];
 
   if (
     typeof set !== 'object'
@@ -10,12 +9,12 @@ export default function cleanSet(set, startString) {
     return '';
   }
 
-  for (const word of set) {
-    // check if word starts with startString
-    if (word && word.startsWith(startString)) {
-      newString.push(word.slice(len));
+  for (const item of set) {
+    if (item && item.startsWith(startString)) {
+      string.push(item.slice(startString.length));
     }
   }
-
-  return newString.join('-');
+  return string.join('-');
 }
+
+export default cleanSet;
